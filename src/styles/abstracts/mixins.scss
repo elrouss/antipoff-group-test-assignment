@@ -1,0 +1,13 @@
+@mixin render-font(
+  $family: 'Roboto',
+  $weight: 400,
+  $size: $font-size-m,
+  $line-height,
+  $color: $color-primary-third-tint
+) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
+}
