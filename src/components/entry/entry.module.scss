@@ -38,4 +38,11 @@
 
   background-color: $color-accent-first-tint;
   border-radius: 8px;
+
+  transition: opacity 0.3s ease;
+
+  &:disabled {
+    opacity: 60%;
+    cursor: default;
+  }
 }
