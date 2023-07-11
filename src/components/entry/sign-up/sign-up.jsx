@@ -1,12 +1,21 @@
 import useFormWithValidation from '../../../hooks/useFormWithValidation';
 import Entry from '../entry';
 import Input from '../../ui/input/input';
+import { registerUser } from '../../../utils/api';
 
 function SignUp() {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
+
+    try {
+      const success = await registerUser(values);
+
+      localStorage.setItem('token', success.token);
+    } catch (err) {
+      console.error(`Error: ${err}`);
+    }
   };
 
   return (

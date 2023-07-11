@@ -12,6 +12,7 @@ export const ROUTES = Object.freeze({
 export const API = Object.freeze({
   baseUrl: 'https://reqres.in',
   endPoints: {
+    register: '/api/register',
     ourTeam: '/api/users',
   },
 });
