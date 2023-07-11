@@ -8,6 +8,7 @@
   align-items: center;
   column-gap: 32px;
   grid-area: content;
+  padding-top: 7px;
 }
 
 .avatar {
@@ -21,7 +22,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 20px;
 }
 
 .heading {
@@ -37,7 +38,7 @@
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
+  column-gap: 129px;
   max-width: $wrapper-secondary-desktop;
   margin: 0 auto;
   padding: 49px 0 314px;

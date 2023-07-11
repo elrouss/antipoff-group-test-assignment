@@ -17,7 +17,11 @@
   justify-self: center;
   row-gap: 20px;
   max-width: 846px;
-  padding: 34px 0 64px;
+  padding: 34px 0 64px 7%;
+
+  * {
+    text-align: center;
+  }
 }
 
 .heading {
@@ -29,5 +33,4 @@
 
 .subheading {
   @include render-font($size: $font-size-l, $color: $color-primary-second-tint);
-  text-align: center;
 }

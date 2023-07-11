@@ -1,7 +1,7 @@
 @import '../../styles/abstracts/variables/fonts.scss';
 @import '../../styles/abstracts/variables/colors.scss';
-@import '../../styles/abstracts/mixins.scss';
 @import '../../styles/abstracts/variables/wrappers.scss';
+@import '../../styles/abstracts/mixins.scss';
 
 .header {
   min-height: 265px;
@@ -11,10 +11,10 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, max-content);
   grid-template-areas:
     'back content exit'
     '. content .';
+    grid-template-columns: max-content 83% max-content;
   justify-content: space-between;
   max-width: $wrapper-main-desktop;
   margin: 0 auto;
