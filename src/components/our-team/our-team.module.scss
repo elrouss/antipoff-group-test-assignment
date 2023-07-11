@@ -1,0 +1,36 @@
+@import '../../styles/abstracts/variables/fonts.scss';
+@import '../../styles/abstracts/variables/colors.scss';
+@import '../../styles/abstracts/mixins.scss';
+@import '../../styles/abstracts/variables/wrappers.scss';
+
+.wrapper {
+  max-width: $wrapper-main-desktop;
+  margin: 0 auto;
+  padding-top: 48px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: content;
+  justify-self: center;
+  row-gap: 20px;
+  max-width: 846px;
+  padding: 34px 0 64px 7%;
+
+  * {
+    text-align: center;
+  }
+}
+
+.heading {
+  @include render-font(
+    $size: $font-size-xxxl,
+    $color: $color-primary-first-tint
+  );
+}
+
+.subheading {
+  @include render-font($size: $font-size-l, $color: $color-primary-second-tint);
+}

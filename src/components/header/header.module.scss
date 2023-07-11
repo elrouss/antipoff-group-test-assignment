@@ -1,0 +1,45 @@
+@import '../../styles/abstracts/variables/fonts.scss';
+@import '../../styles/abstracts/variables/colors.scss';
+@import '../../styles/abstracts/variables/wrappers.scss';
+@import '../../styles/abstracts/mixins.scss';
+
+.header {
+  min-height: 265px;
+
+  background-color: $color-accent-first-tint;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    'back content exit'
+    '. content .';
+    grid-template-columns: max-content 83% max-content;
+  justify-content: space-between;
+  max-width: $wrapper-main-desktop;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+.exit,
+.back {
+  display: inline-block;
+  padding: 7px 15.2px;
+
+  @include render-font(
+    $line-height: $line-height-xxl,
+    $color: $color-primary-second-tint
+  );
+
+  background-color: transparent;
+  border: 1px solid $color-primary-second-tint;
+  border-radius: 8px;
+}
+
+.exit {
+  grid-area: exit;
+}
+
+.back {
+  grid-area: back;
+}
