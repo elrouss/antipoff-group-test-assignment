@@ -2,7 +2,7 @@
   $family: 'Roboto',
   $weight: 400,
   $size: $font-size-m,
-  $line-height,
+  $line-height: $line-height-default,
   $color: $color-primary-third-tint
 ) {
   font-family: $family;

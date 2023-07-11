@@ -1,9 +1,17 @@
-import { useGetOurTeamQuery } from "../../../services/features/our-team/api";
-import Card from "./card/card";
+import { useGetOurTeamQuery } from '../../../services/features/our-team/api';
+import Card from './card/card';
+import styles from './gallery.module.scss';
 
 function Gallery() {
-  useGetOurTeamQuery();
+  const { data } = useGetOurTeamQuery();
 
+  return (
+    <div className={styles.gallery}>
+      {data?.data.map((user) => (
+        <Card key={user.id} user={user} />
+      ))}
+    </div>
+  );
 }
 
 export default Gallery;
