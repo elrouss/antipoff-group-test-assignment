@@ -13,6 +13,7 @@ export const API = Object.freeze({
   baseUrl: 'https://reqres.in',
   endPoints: {
     register: '/api/register',
+    login: '/api/login',
     ourTeam: '/api/users',
   },
 });
