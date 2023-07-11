@@ -33,37 +33,52 @@ function TeamMemberDetails() {
   return (
     <>
       <Header hasBackwardButton>
-        <div className={styles.member}>
-          <img
-            className={styles.avatar}
-            src={currentUser?.avatar}
-            alt="Аватар представителя команды"
-          />
-          <div className={styles.info}>
-            <h1
-              className={styles.heading}
-            >{`${currentUser?.first_name} ${currentUser?.last_name}`}</h1>
-            <p className={styles.subheading}>
-              {currentUser?.job || userDescription.default.job}
-            </p>
+        {currentUser && (
+          <div className={styles.member}>
+            <img
+              className={styles.avatar}
+              src={currentUser?.avatar}
+              alt="Аватар представителя команды"
+            />
+            <div className={styles.info}>
+              <h1
+                className={styles.heading}
+              >{`${currentUser?.first_name} ${currentUser?.last_name}`}</h1>
+              <p className={styles.subheading}>
+                {currentUser?.job || userDescription.default.job}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
       </Header>
       <main>
-        <div className={styles.wrapper}>
-          <p className={styles.description}>
-            {currentUser?.description || userDescription.default.description}
-          </p>
-          <ul className={styles.contacts}>
-            {contacts.map(({ _id, icon, alt, data, href }) => (
-              <li key={_id}>
-                <a className={styles.contact} href={href}>
-                  <img src={icon} alt={alt} />
-                  <span>{data}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+        <div
+          className={`${styles.wrapper}${
+            (!currentUser && ` ${styles.center}`) || ''
+          }`}
+        >
+          {(currentUser && (
+            <>
+              <p className={styles.description}>
+                {currentUser?.description ||
+                  userDescription.default.description}
+              </p>
+              <ul className={styles.contacts}>
+                {contacts.map(({ _id, icon, alt, data, href }) => (
+                  <li key={_id}>
+                    <a className={styles.contact} href={href}>
+                      <img src={icon} alt={alt} />
+                      <span>{data}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )) || (
+            <h1 className={styles.notFound}>
+              Пользователя с указанным id не существует
+            </h1>
+          )}
         </div>
       </main>
     </>

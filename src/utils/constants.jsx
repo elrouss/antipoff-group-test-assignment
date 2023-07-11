@@ -4,14 +4,16 @@ export const ROUTES = Object.freeze({
     member: '/members/:id',
   },
   sign: {
-    up: '/register',
-    in: '/login',
+    up: '/sign-up',
+    in: '/sign-in',
   },
 });
 
 export const API = Object.freeze({
   baseUrl: 'https://reqres.in',
   endPoints: {
+    register: '/api/register',
+    login: '/api/login',
     ourTeam: '/api/users',
   },
 });

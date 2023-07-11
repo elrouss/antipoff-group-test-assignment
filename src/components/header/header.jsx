@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ROUTES } from '../../utils/constants';
+import { logoutUser } from '../../services/features/user/slice';
 import styles from './header.module.scss';
 
 function Header({ children, hasBackwardButton = false }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <header className={styles.header}>
@@ -20,7 +23,11 @@ function Header({ children, hasBackwardButton = false }) {
         )}
 
         {children}
-        <button className={styles.exit} type="button">
+        <button
+          className={styles.exit}
+          type="button"
+          onClick={() => dispatch(logoutUser())}
+        >
           Выход
         </button>
       </div>
