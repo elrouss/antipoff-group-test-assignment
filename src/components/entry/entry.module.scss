@@ -46,3 +46,13 @@
     cursor: default;
   }
 }
+
+.nav {
+  margin-top: 16px;
+
+  text-align: center;
+
+  > a {
+    color: $color-accent-first-tint;
+  }
+}

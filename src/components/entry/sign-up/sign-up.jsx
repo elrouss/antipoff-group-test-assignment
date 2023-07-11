@@ -1,10 +1,18 @@
+import { Link } from 'react-router-dom';
 import useFormWithValidation from '../../../hooks/useFormWithValidation';
 import Entry from '../entry';
 import Input from '../../ui/input/input';
+import { ROUTES } from '../../../utils/constants';
 import { registerUser } from '../../../utils/api';
 
 function SignUp() {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
+
+  const nav = (
+    <>
+      <span>Уже зарегистрированы?</span> <Link to={ROUTES.sign.in}>Войти</Link>
+    </>
+  );
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -20,6 +28,7 @@ function SignUp() {
 
   return (
     <Entry
+      nav={nav}
       heading="Регистрация"
       buttonText="Зарегистрироваться"
       isValid={isValid}
