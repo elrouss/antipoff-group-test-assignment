@@ -1,7 +1,7 @@
 export const ROUTES = Object.freeze({
   ourTeam: {
     main: '/our-team',
-    member: '/our-team/:id',
+    member: '/our-team/member/:id',
   },
   sign: {
     up: '/register',

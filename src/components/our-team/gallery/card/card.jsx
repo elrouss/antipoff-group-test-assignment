@@ -8,7 +8,7 @@ function Card({ user }) {
 
   const openCardDetails = (evt) => {
     if (evt.type === 'click' || evt?.key === 'Enter') {
-      navigate(`${ROUTES.ourTeam.main}/${user.id}`);
+      navigate(`${ROUTES.ourTeam.main}/member/${user.id}`);
     }
   };
 
