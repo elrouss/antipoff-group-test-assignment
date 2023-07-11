@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
+import SignUpPage from '../../pages/sign-up';
 import OurTeamPage from '../../pages/our-team';
 import TeamMemberDetailsPage from '../../pages/team-member-details';
 
@@ -13,6 +14,8 @@ function App() {
         path={`${ROUTES.ourTeam.main}${ROUTES.ourTeam.member}`}
         element={<TeamMemberDetailsPage />}
       />
+
+      <Route path={ROUTES.sign.up} element={<SignUpPage />} />
     </Routes>
   );
 }

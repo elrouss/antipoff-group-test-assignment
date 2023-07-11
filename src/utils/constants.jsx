@@ -4,8 +4,8 @@ export const ROUTES = Object.freeze({
     member: '/members/:id',
   },
   sign: {
-    up: '/register',
-    in: '/login',
+    up: '/sign-up',
+    in: '/sign-in',
   },
 });
 
