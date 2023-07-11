@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './entry.module.scss';
 
@@ -33,6 +32,7 @@ function Entry({
 
 Entry.propTypes = {
   children: PropTypes.node.isRequired,
+  nav: PropTypes.node.isRequired,
   heading: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   isValid: PropTypes.bool.isRequired,

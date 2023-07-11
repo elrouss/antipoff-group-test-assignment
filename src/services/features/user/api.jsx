@@ -1,11 +1,12 @@
-import { API } from './constants';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { API } from '../../../utils/constants';
 
 const checkResponse = (response) =>
   response.ok
     ? response.json()
     : Promise.reject(new Error(`Error ${response.status}`));
 
-export const registerUser = async (data) => {
+export const registerUser = createAsyncThunk('user/register', async (data) => {
   // Because this API is intended for tests,
   // the hard code data is used below for a success response
   let email;
@@ -25,9 +26,9 @@ export const registerUser = async (data) => {
   });
 
   return checkResponse(response);
-};
+});
 
-export const loginUser = async (data) => {
+export const loginUser = createAsyncThunk('user/login', async (data) => {
   // Because this API is intended for tests,
   // the hard code data is used below for a success response
   let email;
@@ -47,4 +48,4 @@ export const loginUser = async (data) => {
   });
 
   return checkResponse(response);
-};
+});
