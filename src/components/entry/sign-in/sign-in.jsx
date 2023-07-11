@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useFormWithValidation from '../../../hooks/useFormWithValidation';
 import Entry from '../entry';
@@ -7,6 +7,8 @@ import { ROUTES } from '../../../utils/constants';
 import { loginUser } from '../../../services/features/user/api';
 
 function SignIn() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const { values, errors, isValid, handleChange } = useFormWithValidation();
 
@@ -23,7 +25,9 @@ function SignIn() {
     try {
       const success = await dispatch(loginUser(values));
 
-      // TODO: navigation
+      if (success.payload.token) {
+        navigate(location.state?.from?.pathname || ROUTES.ourTeam.main);
+      }
     } catch (err) {
       console.error(`Error: ${err}`);
     }

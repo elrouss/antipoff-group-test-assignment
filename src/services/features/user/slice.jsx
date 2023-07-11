@@ -14,6 +14,17 @@ const initialState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    checkUserAuth(state) {
+      const token = localStorage.getItem('token');
+
+      if (token) {
+        state.user = 'user';
+      }
+
+      state.isAuthChecked = true;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {
@@ -21,7 +32,7 @@ const userSlice = createSlice({
         state.process.error = null;
       })
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+        state.user = payload.id;
 
         state.process.isLoading = false;
         state.process.error = null;
@@ -35,8 +46,8 @@ const userSlice = createSlice({
         state.process.isLoading = true;
         state.process.error = null;
       })
-      .addCase(loginUser.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+      .addCase(loginUser.fulfilled, (state) => {
+        state.user = 'user';
 
         state.process.isLoading = false;
         state.process.error = null;
@@ -50,4 +61,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { checkUserAuth } = userSlice.actions;
 export default userSlice.reducer;
