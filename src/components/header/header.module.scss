@@ -21,9 +21,9 @@
   padding-top: 32px;
 }
 
-.exit {
+.exit,
+.back {
   display: inline-block;
-  grid-area: exit;
   padding: 7px 15.2px;
 
   @include render-font(
@@ -34,4 +34,12 @@
   background-color: transparent;
   border: 1px solid $color-primary-second-tint;
   border-radius: 8px;
+}
+
+.exit {
+  grid-area: exit;
+}
+
+.back {
+  grid-area: back;
 }
