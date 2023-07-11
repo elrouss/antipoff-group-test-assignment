@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ROUTES } from '../../../../utils/constants';
 import styles from './card.module.scss';
 
 function Card({ user }) {
@@ -8,7 +7,7 @@ function Card({ user }) {
 
   const openCardDetails = (evt) => {
     if (evt.type === 'click' || evt?.key === 'Enter') {
-      navigate(`${ROUTES.ourTeam.main}/member/${user.id}`);
+      navigate(`members/${user.id}`);
     }
   };
 

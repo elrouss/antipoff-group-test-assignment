@@ -1,7 +1,7 @@
 @import '../../styles/abstracts/variables/fonts.scss';
 @import '../../styles/abstracts/variables/colors.scss';
-@import '../../styles/abstracts/mixins.scss';
 @import '../../styles/abstracts/variables/wrappers.scss';
+@import '../../styles/abstracts/mixins.scss';
 
 .header {
   min-height: 265px;
@@ -11,19 +11,19 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, max-content);
   grid-template-areas:
     'back content exit'
     '. content .';
+    grid-template-columns: max-content 83% max-content;
   justify-content: space-between;
   max-width: $wrapper-main-desktop;
   margin: 0 auto;
   padding-top: 32px;
 }
 
-.exit {
+.exit,
+.back {
   display: inline-block;
-  grid-area: exit;
   padding: 7px 15.2px;
 
   @include render-font(
@@ -34,4 +34,12 @@
   background-color: transparent;
   border: 1px solid $color-primary-second-tint;
   border-radius: 8px;
+}
+
+.exit {
+  grid-area: exit;
+}
+
+.back {
+  grid-area: back;
 }
