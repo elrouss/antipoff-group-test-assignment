@@ -24,6 +24,11 @@ const userSlice = createSlice({
 
       state.isAuthChecked = true;
     },
+
+    logoutUser(state) {
+      localStorage.removeItem('token');
+      state.user = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -61,5 +66,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { checkUserAuth } = userSlice.actions;
+export const { checkUserAuth, logoutUser } = userSlice.actions;
 export default userSlice.reducer;
