@@ -1,9 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import {
+  addCard,
+  removeCard,
+} from '../../../../services/features/selected-team-members/slice';
+import getSelectedTeamMember from '../../../../services/features/selected-team-members/selectors';
 import styles from './card.module.scss';
 
 function Card({ user }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const selectedCards = useSelector(getSelectedTeamMember).selectedTeamMembers;
 
   const openCardDetails = (evt) => {
     if (evt.type === 'click' || evt?.key === 'Enter') {
@@ -13,6 +21,10 @@ function Card({ user }) {
 
   const handleLike = (evt) => {
     evt.stopPropagation();
+
+    const isSelected = !!selectedCards.find((card) => card.id === user.id);
+
+    return dispatch(isSelected ? removeCard(user) : addCard(user));
   };
 
   return (
