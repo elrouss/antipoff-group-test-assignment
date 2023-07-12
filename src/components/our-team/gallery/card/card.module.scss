@@ -48,7 +48,7 @@
 }
 
 .button {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   justify-self: flex-end;
@@ -58,10 +58,12 @@
 
   background-color: $color-primary-second-tint;
   border-radius: 10px;
+}
 
-  &::after {
-    content: url(../../../../assets/icons/like-off.svg);
-    width: 16px;
-    height: 14px;
+.like {
+  fill: $color-accent-first-tint;
+
+  path {
+    stroke: $color-accent-first-tint;
   }
 }
