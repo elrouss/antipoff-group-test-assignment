@@ -16,7 +16,7 @@ function Input({
   onChange,
 }) {
   const [passwordType, setPasswordType] = useState(htmlType);
-  const [hasError, setHasError] = useState(true);
+  const [isValid, setIsValid] = useState(true);
   const [isEyeClicked, setIsEyeClicked] = useState(true);
 
   useEffect(() => {
@@ -26,6 +26,12 @@ function Input({
     if (!isEyeClicked) setPasswordType('text');
   }, [isEyeClicked]);
 
+  useEffect(() => {
+    if (!value.length) return;
+
+    setIsValid(error);
+  }, [value, error]);
+
   const handleEye = () => {
     setIsEyeClicked(!isEyeClicked);
   };
@@ -34,7 +40,9 @@ function Input({
     <div className={styles.wrapper}>
       <label htmlFor={name}>{label}</label>
       <input
-        className={styles.input}
+        className={`${styles.input}${
+          (!isValid && ` ${styles.errorBorder}`) || ''
+        }`}
         id={name}
         name={name}
         type={name.includes('password') ? passwordType : htmlType}
@@ -43,8 +51,6 @@ function Input({
         disabled={disabled}
         value={value}
         onChange={onChange}
-        onFocus={() => setHasError(error)}
-        onBlur={() => setHasError(error)}
       />
       {hasIconHiding && (
         <button
@@ -86,7 +92,7 @@ function Input({
           </svg>
         </button>
       )}
-      {!hasError && (
+      {!isValid && (
         <span className={styles.error}>{validationMessages[name]}</span>
       )}
     </div>
