@@ -1,3 +1,3 @@
-const getSelectedTeamMember = (state) => state.selectedTeamMembers;
+const getSelectedTeamMembers = (state) => state.selectedTeamMembers;
 
-export default getSelectedTeamMember;
+export default getSelectedTeamMembers;

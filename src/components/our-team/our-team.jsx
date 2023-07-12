@@ -1,8 +1,21 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from '../header/header';
 import Gallery from './gallery/gallery';
+import { setInitialSelectedCards } from '../../services/features/selected-team-members/slice';
 import styles from './our-team.module.scss';
 
 function OurTeam() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setInitialSelectedCards(
+        JSON.parse(localStorage.getItem('selectedTeamMembers'))
+      )
+    );
+  }, []);
+
   return (
     <>
       <Header>
