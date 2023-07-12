@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/antipoff-group-test-assignment/static/css/main.558d88c8.css",
-    "main.js": "/antipoff-group-test-assignment/static/js/main.189c32db.js",
+    "main.css": "/antipoff-group-test-assignment/static/css/main.23eedc11.css",
+    "main.js": "/antipoff-group-test-assignment/static/js/main.52476397.js",
     "static/js/787.c583d0c3.chunk.js": "/antipoff-group-test-assignment/static/js/787.c583d0c3.chunk.js",
     "static/media/Roboto-Regular.ttf": "/antipoff-group-test-assignment/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "index.html": "/antipoff-group-test-assignment/index.html",
@@ -10,12 +10,12 @@
     "static/media/exit-to-app.svg": "/antipoff-group-test-assignment/static/media/exit-to-app.563bdb05a062531da28d.svg",
     "static/media/mail.svg": "/antipoff-group-test-assignment/static/media/mail.2f6fdafd8ef310597afad1436ecdcb97.svg",
     "static/media/arrow-back.svg": "/antipoff-group-test-assignment/static/media/arrow-back.16be92b04ccb3416b80c.svg",
-    "main.558d88c8.css.map": "/antipoff-group-test-assignment/static/css/main.558d88c8.css.map",
-    "main.189c32db.js.map": "/antipoff-group-test-assignment/static/js/main.189c32db.js.map",
+    "main.23eedc11.css.map": "/antipoff-group-test-assignment/static/css/main.23eedc11.css.map",
+    "main.52476397.js.map": "/antipoff-group-test-assignment/static/js/main.52476397.js.map",
     "787.c583d0c3.chunk.js.map": "/antipoff-group-test-assignment/static/js/787.c583d0c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.558d88c8.css",
-    "static/js/main.189c32db.js"
+    "static/css/main.23eedc11.css",
+    "static/js/main.52476397.js"
   ]
 }
