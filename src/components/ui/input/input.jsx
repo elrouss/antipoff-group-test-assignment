@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import validation from '../../../utils/validation';
+import validationMessages from '../../../utils/validation/messages';
 import styles from './input.module.scss';
 
 function Input({
@@ -86,7 +86,9 @@ function Input({
           </svg>
         </button>
       )}
-      {!hasError && <span className={styles.error}>{validation[name]}</span>}
+      {!hasError && (
+        <span className={styles.error}>{validationMessages[name]}</span>
+      )}
     </div>
   );
 }
