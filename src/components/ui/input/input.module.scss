@@ -3,6 +3,8 @@
 @import '../../../styles/abstracts/mixins.scss';
 
 .wrapper {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   min-height: 82.99px;
@@ -22,7 +24,18 @@
 }
 
 .eye {
-  &::after {
-    content: url(../../../assets/icons/eye-off.svg);
+  position: absolute;
+  top: 35px;
+  right: 8px;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: transparent;
+}
+
+.eyeActive {
+  g path {
+    stroke: $color-primary-third-tint;
   }
 }
