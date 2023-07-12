@@ -39,8 +39,8 @@ export default function useFormWithValidation() {
       setValues({ email: '', password: '' });
 
       setErrors({
-        name: false,
         email: false,
+        password: false,
       });
     }
   }, []);
@@ -50,9 +50,7 @@ export default function useFormWithValidation() {
       setErrors({
         name: REGEX_FIRST_NAME.test(values.name),
         email: REGEX_EMAIL.test(values.email),
-        password:
-          REGEX_PASSWORD.test(values.password) &&
-          values.password === values.passwordConfirmation,
+        password: REGEX_PASSWORD.test(values.password),
         passwordConfirmation:
           REGEX_PASSWORD.test(values.passwordConfirmation) &&
           values.password === values.passwordConfirmation,
