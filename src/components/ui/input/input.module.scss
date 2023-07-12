@@ -19,17 +19,21 @@
   outline: none;
   border-radius: 8px;
 
-  &:valid:focus {
+  &:focus {
     outline: 1px solid $color-primary-third-tint;
-  }
-
-  &:invalid:focus {
-    outline: 1px solid $color-error;
   }
 }
 
 .error {
   @include render-font($size: $font-size-xs, $color: $color-error);
+}
+
+.errorBorder {
+  outline-color: $color-error;
+
+  &:focus {
+    outline-color: $color-error;
+  }
 }
 
 .eye {

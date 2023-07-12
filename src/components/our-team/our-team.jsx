@@ -9,11 +9,11 @@ function OurTeam() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      setInitialSelectedCards(
-        JSON.parse(localStorage.getItem('selectedTeamMembers'))
-      )
-    );
+    const selected = JSON.parse(localStorage.getItem('selectedTeamMembers'));
+
+    if (!selected) return;
+
+    dispatch(setInitialSelectedCards(selected));
   }, []);
 
   return (
