@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import validation from '../../../utils/validation';
 import styles from './input.module.scss';
 
 function Input({
@@ -7,17 +8,15 @@ function Input({
   htmlType,
   name,
   placeholder,
-  minLength,
-  maxLength,
   autoComplete = 'off',
   disabled = false,
   hasIconHiding = false,
-  required = true,
   value,
   error,
   onChange,
 }) {
   const [passwordType, setPasswordType] = useState(htmlType);
+  const [hasError, setHasError] = useState(true);
   const [isEyeClicked, setIsEyeClicked] = useState(true);
 
   useEffect(() => {
@@ -40,13 +39,12 @@ function Input({
         name={name}
         type={name.includes('password') ? passwordType : htmlType}
         placeholder={placeholder}
-        minLength={minLength}
-        maxLength={maxLength}
         autoComplete={autoComplete}
         disabled={disabled}
-        required={required}
         value={value}
         onChange={onChange}
+        onFocus={() => setHasError(error)}
+        onBlur={() => setHasError(error)}
       />
       {hasIconHiding && (
         <button
@@ -88,7 +86,7 @@ function Input({
           </svg>
         </button>
       )}
-      {error && <span className={styles.error}>Ошибка</span>}
+      {!hasError && <span className={styles.error}>{validation[name]}</span>}
     </div>
   );
 }
@@ -98,27 +96,21 @@ Input.propTypes = {
   htmlType: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  minLength: PropTypes.string,
-  maxLength: PropTypes.string,
   autoComplete: PropTypes.oneOf(['on', 'off']),
   disabled: PropTypes.bool,
-  required: PropTypes.bool,
   hasIconHiding: PropTypes.bool,
   value: PropTypes.string.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 };
 
 Input.defaultProps = {
   label: undefined,
   placeholder: undefined,
-  minLength: undefined,
-  maxLength: undefined,
   autoComplete: 'off',
   disabled: false,
-  required: true,
   hasIconHiding: false,
-  error: undefined,
+  error: undefined || false,
 };
 
 export default Input;

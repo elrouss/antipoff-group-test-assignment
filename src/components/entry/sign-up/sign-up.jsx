@@ -44,8 +44,6 @@ function SignUp() {
         htmlType="text"
         name="name"
         placeholder="Артур"
-        minLength="2"
-        maxLength="50"
         value={values?.name || ''}
         error={errors?.name}
         onChange={handleChange}
