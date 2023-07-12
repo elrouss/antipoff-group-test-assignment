@@ -1,5 +1,6 @@
 @import '../../styles/abstracts/variables/fonts.scss';
 @import '../../styles/abstracts/variables/colors.scss';
+@import '../../styles/abstracts/variables/media-queries.scss';
 @import '../../styles/abstracts/mixins.scss';
 @import '../../styles/abstracts/variables/wrappers.scss';
 
@@ -7,6 +8,15 @@
   max-width: $wrapper-main-desktop;
   margin: 0 auto;
   padding-top: 48px;
+
+  @media screen and (max-width: calc($media-desktop - 1px)) {
+    margin: 0 $adaptive-indents-sides-first;
+  }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    margin: 0 $adaptive-indents-sides-fourth;
+    padding-top: 32px;
+  }
 }
 
 .text {
@@ -22,6 +32,12 @@
   * {
     text-align: center;
   }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    max-width: 334px;
+    padding-top: 12px;
+    padding-left: 0;
+  }
 }
 
 .heading {
@@ -29,8 +45,20 @@
     $size: $font-size-xxxl,
     $color: $color-primary-first-tint
   );
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    font-size: calc(
+      $font-size-xxl + (28 + 28 * 0.7) * (100vw - $media-mobile) / 1279
+    );
+  }
 }
 
 .subheading {
   @include render-font($size: $font-size-l, $color: $color-primary-second-tint);
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    font-size: calc(
+      $font-size-m + (4 + 4 * 0.7) * (100vw - $media-mobile) / 1279
+    );
+  }
 }

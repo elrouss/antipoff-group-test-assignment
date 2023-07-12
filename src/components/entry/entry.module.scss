@@ -1,5 +1,6 @@
 @import '../../styles/abstracts/variables/fonts.scss';
 @import '../../styles/abstracts/variables/colors.scss';
+@import '../../styles/abstracts/variables/media-queries.scss';
 @import '../../styles/abstracts/mixins.scss';
 
 .wrapper {
@@ -17,6 +18,15 @@
   box-sizing: border-box;
   border-radius: 16px;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.08);
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    position: static;
+
+    width: 375px;
+    margin-top: 64px;
+    margin-right: 0;
+    transform: none;
+  }
 }
 
 .heading {

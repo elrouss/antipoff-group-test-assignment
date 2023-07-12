@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { isLoading } from '../../services/features/user/selectors';
 import styles from './entry.module.scss';
 
-function Entry({
-  children,
-  nav,
-  heading,
-  buttonText,
-  isValid,
-  isLoading,
-  onSubmit,
-}) {
+function Entry({ children, nav, heading, buttonText, isValid, onSubmit }) {
+  const onLoad = useSelector(isLoading);
+
   return (
     <main>
       <div className={styles.wrapper}>
@@ -19,9 +15,9 @@ function Entry({
           <button
             className={styles.button}
             type="submit"
-            disabled={!isValid || isLoading}
+            disabled={!isValid || onLoad}
           >
-            {buttonText}
+            {onLoad ? 'Подождите...' : buttonText}
           </button>
         </form>
         <div className={styles.nav}>{nav}</div>
@@ -36,7 +32,6 @@ Entry.propTypes = {
   heading: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   isValid: PropTypes.bool.isRequired,
-  isLoading: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 

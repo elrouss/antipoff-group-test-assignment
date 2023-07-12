@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ROUTES } from '../../utils/constants';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { ROUTES, MEDIA_TABLET } from '../../utils/constants';
 import { logoutUser } from '../../services/features/user/slice';
 import styles from './header.module.scss';
 
 function Header({ children, hasBackwardButton = false }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const windowWidth = useWindowDimensions();
 
   return (
     <header className={styles.header}>
@@ -18,7 +20,7 @@ function Header({ children, hasBackwardButton = false }) {
             type="button"
             onClick={() => navigate(ROUTES.ourTeam.main)}
           >
-            Назад
+            {windowWidth >= MEDIA_TABLET && 'Назад'}
           </button>
         )}
 
@@ -28,7 +30,7 @@ function Header({ children, hasBackwardButton = false }) {
           type="button"
           onClick={() => dispatch(logoutUser())}
         >
-          Выход
+          {windowWidth >= MEDIA_TABLET && 'Выход'}
         </button>
       </div>
     </header>

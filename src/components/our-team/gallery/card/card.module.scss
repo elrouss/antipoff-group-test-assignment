@@ -2,6 +2,11 @@
 @import '../../../../styles/abstracts/variables/colors.scss';
 @import '../../../../styles/abstracts/mixins.scss';
 
+.content {
+  display: flex;
+  justify-content: center;
+}
+
 .card {
   width: 305px;
 
