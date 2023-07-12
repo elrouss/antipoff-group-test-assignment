@@ -1,5 +1,6 @@
 @import '../../styles/abstracts/variables/fonts.scss';
 @import '../../styles/abstracts/variables/colors.scss';
+@import '../../styles/abstracts/variables/media-queries.scss';
 @import '../../styles/abstracts/variables/wrappers.scss';
 @import '../../styles/abstracts/mixins.scss';
 
@@ -14,16 +15,32 @@
   grid-template-areas:
     'back content exit'
     '. content .';
-    grid-template-columns: max-content 83% max-content;
+  grid-template-columns: max-content 83% max-content;
   justify-content: space-between;
   max-width: $wrapper-main-desktop;
   margin: 0 auto;
   padding-top: 32px;
+
+  @media screen and (max-width: calc($media-desktop - 1px)) {
+    margin: 0 $adaptive-indents-sides-first;
+  }
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    grid-template-columns: max-content 75% max-content;
+  }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    grid-template-areas:
+      'back . exit'
+      'content content content'
+      'content content content';
+    padding: 12px 0 6px;
+  }
 }
 
 .exit,
 .back {
-  display: inline-block;
+  display: inline-flex;
   padding: 7px 15.2px;
 
   @include render-font(
@@ -34,12 +51,35 @@
   background-color: transparent;
   border: 1px solid $color-primary-second-tint;
   border-radius: 8px;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+
+    border: none;
+  }
 }
 
 .exit {
   grid-area: exit;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    &::after {
+      content: url(../../assets/icons/exit-to-app.svg);
+    }
+  }
 }
 
 .back {
   grid-area: back;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    &::after {
+      content: url(../../assets/icons/arrow-back.svg);
+      width: 40px;
+      height: 40px;
+    }
+  }
 }

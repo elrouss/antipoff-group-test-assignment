@@ -17,6 +17,7 @@ function Card({ user }) {
 
   return (
     <div
+      className={styles.content}
       role="button"
       tabIndex={0}
       aria-label="Открыть страницу с подробной информацией о представителе команды"

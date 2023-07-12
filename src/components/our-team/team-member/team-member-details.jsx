@@ -6,8 +6,6 @@ import iconEmail from '../../../assets/icons/mail.svg';
 import userDescription from '../../../utils/data/user-data';
 import styles from './team-member-details.module.scss';
 
-// TODO: Если пользователя с id не существует, отрисовывать соответствующую страницу
-
 function TeamMemberDetails() {
   const { data: users } = useGetOurTeamQuery();
   const { id } = useParams();

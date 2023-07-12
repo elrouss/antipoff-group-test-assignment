@@ -1,0 +1,9 @@
+$media-desktop: 1440px;
+$media-desktop-s: 1280px;
+$media-tablet: 768px;
+$media-mobile: 375px;
+
+$adaptive-indents-sides-first: calc(80px / $media-desktop * 100%);
+$adaptive-indents-sides-second: calc(188px / $media-desktop * 100%);
+$adaptive-indents-sides-third: calc(16px / $media-mobile * 100%);
+$adaptive-indents-sides-fourth: calc(35px / $media-mobile * 100%);

@@ -17,3 +17,6 @@ export const API = Object.freeze({
     ourTeam: '/api/users',
   },
 });
+
+// MEDIA QUERIRES (see also scss styles)
+export const MEDIA_TABLET = 768;
