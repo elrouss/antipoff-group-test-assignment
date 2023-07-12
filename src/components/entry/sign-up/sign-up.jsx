@@ -4,6 +4,7 @@ import useFormWithValidation from '../../../hooks/useFormWithValidation';
 import Entry from '../entry';
 import Input from '../../ui/input/input';
 import { ROUTES } from '../../../utils/constants';
+import clearFormValues from '../../../utils/validation/auxiliary-functions';
 import { registerUser } from '../../../services/features/user/api';
 
 function SignUp() {
@@ -20,8 +21,10 @@ function SignUp() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
+    const data = clearFormValues(values);
+
     try {
-      const success = await dispatch(registerUser(values));
+      const success = await dispatch(registerUser(data));
 
       if (success.payload.token) {
         navigate(ROUTES.ourTeam.main);
@@ -44,8 +47,6 @@ function SignUp() {
         htmlType="text"
         name="name"
         placeholder="Артур"
-        minLength="2"
-        maxLength="50"
         value={values?.name || ''}
         error={errors?.name}
         onChange={handleChange}

@@ -4,6 +4,7 @@ import useFormWithValidation from '../../../hooks/useFormWithValidation';
 import Entry from '../entry';
 import Input from '../../ui/input/input';
 import { ROUTES } from '../../../utils/constants';
+import clearFormValues from '../../../utils/validation/auxiliary-functions';
 import { loginUser } from '../../../services/features/user/api';
 
 function SignIn() {
@@ -22,8 +23,10 @@ function SignIn() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
+    const data = clearFormValues(values);
+
     try {
-      const success = await dispatch(loginUser(values));
+      const success = await dispatch(loginUser(data));
 
       if (success.payload.token) {
         navigate(location.state?.from?.pathname || ROUTES.ourTeam.main);
