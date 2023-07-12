@@ -9,7 +9,9 @@ import styles from './header.module.scss';
 function Header({ children, hasBackwardButton = false }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const windowWidth = useWindowDimensions();
+  const isBigScreenDevice = windowWidth >= MEDIA_TABLET;
 
   return (
     <header className={styles.header}>
@@ -18,9 +20,14 @@ function Header({ children, hasBackwardButton = false }) {
           <button
             className={styles.back}
             type="button"
+            aria-label={
+              (!isBigScreenDevice &&
+                'Назад на страницу с сотрудниками компании') ||
+              undefined
+            }
             onClick={() => navigate(ROUTES.ourTeam.main)}
           >
-            {windowWidth >= MEDIA_TABLET && 'Назад'}
+            {isBigScreenDevice && 'Назад'}
           </button>
         )}
 
@@ -28,9 +35,12 @@ function Header({ children, hasBackwardButton = false }) {
         <button
           className={styles.exit}
           type="button"
+          aria-label={
+            (!isBigScreenDevice && 'Выход из личного кабинета') || undefined
+          }
           onClick={() => dispatch(logoutUser())}
         >
-          {windowWidth >= MEDIA_TABLET && 'Выход'}
+          {isBigScreenDevice && 'Выход'}
         </button>
       </div>
     </header>
