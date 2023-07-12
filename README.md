@@ -25,7 +25,7 @@
 
 <b>Ссылки на проект:</b>
 <br>
-Деплой: <i>Ссылка появится позже</i>
+Деплой: https://elrouss.github.io/antipoff-group-test-assignment/
 <br>
 Задание и макет: https://docs.google.com/document/d/1Zv2tPpmfqaDfx9-E2Z3M8CVuAaWajOkEPQ_o2oz4ATQ/edit
 <br>
