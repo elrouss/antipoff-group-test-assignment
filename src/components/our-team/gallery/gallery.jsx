@@ -6,11 +6,16 @@ function Gallery() {
   const { data } = useGetOurTeamQuery();
 
   return (
-    <div className={styles.gallery}>
-      {data?.data.map((user) => (
-        <Card key={user.id} user={user} />
-      ))}
-    </div>
+    <>
+      <div className={styles.gallery}>
+        {data?.data.map((user) => (
+          <Card key={user.id} user={user} />
+        ))}
+      </div>
+      <button className={styles.button} type="button">
+        Показать еще
+      </button>
+    </>
   );
 }
 
