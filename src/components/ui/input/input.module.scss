@@ -1,0 +1,28 @@
+@import '../../../styles/abstracts/variables/fonts.scss';
+@import '../../../styles/abstracts/variables/colors.scss';
+@import '../../../styles/abstracts/mixins.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 82.99px;
+}
+
+.input {
+  margin: 8px 0 4px;
+  padding: 12px 8px 12px 16px;
+
+  background-color: $color-primary-second-tint;
+  border: none;
+  border-radius: 8px;
+}
+
+.error {
+  @include render-font($size: $font-size-xs, $color: $color-error);
+}
+
+.eye {
+  &::after {
+    content: url(../../../assets/icons/eye-off.svg);
+  }
+}

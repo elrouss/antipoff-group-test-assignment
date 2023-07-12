@@ -1,0 +1,68 @@
+@import '../../styles/abstracts/variables/fonts.scss';
+@import '../../styles/abstracts/variables/colors.scss';
+@import '../../styles/abstracts/variables/media-queries.scss';
+@import '../../styles/abstracts/mixins.scss';
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  width: 500px;
+  padding: 16px;
+
+  @include render-font();
+
+  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.08);
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    position: static;
+
+    width: 375px;
+    margin-top: 64px;
+    margin-right: 0;
+    transform: none;
+  }
+}
+
+.heading {
+  @include render-font($size: $font-size-l);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  margin: 16px 0 24px;
+}
+
+.button {
+  width: 100%;
+  padding: 13px 0;
+
+  color: $color-primary-first-tint;
+
+  background-color: $color-accent-first-tint;
+  border-radius: 8px;
+
+  transition: opacity 0.3s ease;
+
+  &:disabled {
+    opacity: 60%;
+    cursor: default;
+  }
+}
+
+.nav {
+  margin-top: 16px;
+
+  text-align: center;
+
+  > a {
+    color: $color-accent-first-tint;
+  }
+}

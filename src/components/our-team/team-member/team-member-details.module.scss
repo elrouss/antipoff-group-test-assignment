@@ -1,0 +1,124 @@
+@import '../../../styles/abstracts/variables/fonts.scss';
+@import '../../../styles/abstracts/variables/colors.scss';
+@import '../../../styles/abstracts/variables/media-queries.scss';
+@import '../../../styles/abstracts/variables/wrappers.scss';
+@import '../../../styles/abstracts/mixins.scss';
+
+.member {
+  display: flex;
+  align-items: center;
+  column-gap: 32px;
+  grid-area: content;
+  padding-top: 7px;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    flex-direction: column;
+    row-gap: 16px;
+    padding-top: 14px;
+    padding-bottom: 58px;
+
+    * {
+      text-align: center;
+    }
+  }
+}
+
+.avatar {
+  width: 187px;
+  height: 187px;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    order: 2;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    row-gap: 16px;
+  }
+}
+
+.heading {
+  @include render-font(
+    $size: $font-size-xxxl,
+    $color: $color-primary-first-tint
+  );
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    font-size: calc(
+      $font-size-xxl + (28 + 28 * 0.7) * (100vw - $media-mobile) / 1279
+    );
+  }
+}
+
+.subheading {
+  @include render-font($size: $font-size-xl, $color: $color-primary-first-tint);
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    font-size: calc(
+      $font-size-l + (12 + 12 * 0.7) * (100vw - $media-mobile) / 1279
+    );
+  }
+}
+
+.wrapper {
+  display: flex;
+  column-gap: 129px;
+  max-width: $wrapper-secondary-desktop;
+  margin: 0 auto;
+  padding: 49px 0 314px;
+
+  @include render-font($line-height: $line-height-xxl);
+
+  @media screen and (max-width: calc($media-desktop - 1px)) {
+    row-gap: 32px;
+    margin: 0 $adaptive-indents-sides-second;
+  }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    flex-direction: column;
+    column-gap: 0;
+    padding: 34px 0;
+    margin: 0 $adaptive-indents-sides-third;
+  }
+}
+
+.description {
+  max-width: 630px;
+
+  white-space: pre-wrap;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    order: 2;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  color: inherit;
+}
+
+.center {
+  justify-content: center;
+}
+
+.notFound {
+  font-size: $font-size-xl;
+  font-weight: 400;
+}

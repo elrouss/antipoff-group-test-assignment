@@ -1,0 +1,67 @@
+@import '../../../../styles/abstracts/variables/fonts.scss';
+@import '../../../../styles/abstracts/variables/colors.scss';
+@import '../../../../styles/abstracts/mixins.scss';
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 305px;
+
+  border-radius: 10px;
+  box-shadow: 0 0.9960451126098633px 3.984180450439453px 0
+    rgba(51, 51, 51, 0.15);
+
+  cursor: pointer;
+}
+
+.wrapper {
+  display: grid;
+  justify-items: center;
+  width: 86.9%;
+  padding: 20px;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+
+  * {
+    margin-bottom: 16px;
+  }
+}
+
+.image {
+  width: 124px;
+  height: 124px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.heading {
+  @include render-font($size: $font-size-l);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+
+  width: 30px;
+  height: 28px;
+
+  background-color: $color-primary-second-tint;
+  border-radius: 10px;
+
+  &::after {
+    content: url(../../../../assets/icons/like-off.svg);
+    width: 16px;
+    height: 14px;
+  }
+}
