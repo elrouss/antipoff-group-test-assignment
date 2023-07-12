@@ -1,0 +1,50 @@
+@import '../../../styles/abstracts/variables/fonts.scss';
+@import '../../../styles/abstracts/variables/colors.scss';
+@import '../../../styles/abstracts/mixins.scss';
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 82.99px;
+}
+
+.input {
+  margin: 8px 0 4px;
+  padding: 12px 42px 12px 16px;
+
+  background-color: $color-primary-second-tint;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+
+  &:valid:focus {
+    outline: 1px solid $color-primary-third-tint;
+  }
+
+  &:invalid:focus {
+    outline: 1px solid $color-error;
+  }
+}
+
+.error {
+  @include render-font($size: $font-size-xs, $color: $color-error);
+}
+
+.eye {
+  position: absolute;
+  top: 35px;
+  right: 8px;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: transparent;
+}
+
+.eyeActive {
+  g path {
+    stroke: $color-primary-third-tint;
+  }
+}

@@ -1,0 +1,44 @@
+html {
+  font-size: 10px;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-primary-third-tint;
+
+  background-color: $color-primary-first-tint;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+a,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}

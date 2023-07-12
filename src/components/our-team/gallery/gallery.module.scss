@@ -1,0 +1,32 @@
+@import '../../../styles/abstracts/variables/fonts.scss';
+@import '../../../styles/abstracts/variables/colors.scss';
+@import '../../../styles/abstracts/mixins.scss';
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(305px, auto));
+  gap: 20px;
+}
+
+.button {
+  position: relative;
+
+  justify-self: center;
+  width: 170px;
+  height: 40px;
+  padding: 8px 46px 8px 16px;
+  box-sizing: border-box;
+
+  @include render-font();
+
+  background-color: transparent;
+  border: 1px solid $color-primary-third-tint;
+  border-radius: 8px;
+
+  &::before {
+    position: absolute;
+    right: 18px;
+
+    content: url(../../../assets/icons/arrow-down.svg);
+  }
+}
