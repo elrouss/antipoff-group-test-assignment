@@ -5,15 +5,18 @@
 @import '../../styles/abstracts/variables/wrappers.scss';
 
 .wrapper {
+  display: grid;
+  row-gap: 56px;
   max-width: $wrapper-main-desktop;
   margin: 0 auto;
-  padding-top: 48px;
+  padding: 48px 0 69px;
 
   @media screen and (max-width: calc($media-desktop - 1px)) {
     margin: 0 $adaptive-indents-sides-first;
   }
 
   @media screen and (max-width: calc($media-tablet - 1px)) {
+    row-gap: 32px;
     margin: 0 $adaptive-indents-sides-fourth;
     padding-top: 32px;
   }
