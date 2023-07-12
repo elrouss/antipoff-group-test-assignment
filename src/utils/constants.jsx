@@ -1,11 +1,11 @@
 export const ROUTES = Object.freeze({
   ourTeam: {
-    main: '/our-team',
+    main: '/antipoff-group-test-assignment',
     member: '/members/:id',
   },
   sign: {
-    up: '/sign-up',
-    in: '/sign-in',
+    up: '/antipoff-group-test-assignment/sign-up',
+    in: '/antipoff-group-test-assignment/sign-in',
   },
 });
 

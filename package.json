@@ -1,7 +1,7 @@
 {
   "name": "antipoff-group",
   "version": "0.1.0",
-  "homepage": "https://elrouss.github.io/our-team",
+  "homepage": "https://elrouss.github.io/antipoff-group-test-assignment/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
